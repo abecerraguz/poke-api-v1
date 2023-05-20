@@ -3,15 +3,16 @@ import selectAllButtos from './selectAllButtos.js';
 let arr = []
 
 const getPokeDetails = async ( detalle ) => {
+    // console.log('Salida de arr--->', arr)
     for( const file of detalle ) {
         // console.log('XXXXXXXXXX?--->', file.url)
         const contents = await fetch(file.url)
         const res = await contents.json()
-        console.log('ZZZZZ---->', res);
+        // console.log('ZZZZZ---->', res);
         const { sprites, name, abilities, weight, order, id, stats } = res
         const dataPoke = {
             idPoke: id,
-            imagePrincipal: sprites.other.dream_world.front_default,
+            imagePrincipal: sprites.other['official-artwork'].front_default,
             imagenUno: sprites.front_default,
             imagenDos: sprites.front_shiny,
             imagenTres: sprites.back_default,
@@ -34,7 +35,7 @@ const getPokeDetails = async ( detalle ) => {
             </div>
         </div></div>`
         arr.push(dataPoke)
-        selectAllButtos(arr)
+        selectAllButtos(detalle)
     }
 
 }
