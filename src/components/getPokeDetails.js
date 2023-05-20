@@ -35,7 +35,7 @@ const getPokeDetails = async ( detalle ) => {
             </div>
         </div></div>`
         arr.push(dataPoke)
-        selectAllButtos(detalle)
+        selectAllButtos(arr)
     }
 
 }
