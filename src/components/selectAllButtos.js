@@ -1,5 +1,5 @@
 import rederGrafico from './rederGrafico.js'
-
+import mensajeModal from './mensajeModal.js'
 const selectAllButtos = ( arr ) => {
   
     const allButtons = document.querySelectorAll('#insertDOMcontent div.col-md-3.mb-3 button')

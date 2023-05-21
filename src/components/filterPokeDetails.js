@@ -1,14 +1,13 @@
 import selectAllButtos from './selectAllButtos.js';
+import * as UI from './interfaz.js'
 
-let arr = []
 
-const getPokeDetails = async ( detalle ) => {
 
-    console.log('Mierda---->')
+const filterPokeDetails = async ( file ) => {
 
-    for( const file of detalle ) {
-        console.log('XXXXXXXXXX?--->', file.url)
-        const contents = await fetch(file.url)
+    console.log( 'Mierda---->', file )
+
+        const contents = await fetch(file[0].url)
         const res = await contents.json()
         console.log('ZZZZZ---->', res);
         const { sprites, name, abilities, weight, order, id, stats } = res
@@ -26,8 +25,8 @@ const getPokeDetails = async ( detalle ) => {
             estado:stats
         }
         const { nombre, imagePrincipal, idPoke } = dataPoke
-        insertDOMcontent.innerHTML += ` `
-        insertDOMcontent.innerHTML += `<div class="col-md-3 mb-3"><div class="card">
+        UI.insertDOMcontent.replaceChildren()
+        UI.insertDOMcontent.innerHTML = `<div class="cardCentrado"><div class="card">
                 <span class="numPoke">${idPoke}</span>
                 <img src="${imagePrincipal}" class="card-img-top" alt="${nombre}">
                 <div class="card-body">
@@ -36,9 +35,7 @@ const getPokeDetails = async ( detalle ) => {
                 </div>
             </div>
         </div></div>`
-        arr.push(dataPoke)
-        selectAllButtos(arr)
-    }
+        selectAllButtos(dataPoke)
 
 }
-export default getPokeDetails
+export default filterPokeDetails

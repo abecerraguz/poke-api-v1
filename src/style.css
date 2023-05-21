@@ -447,7 +447,12 @@ input.btn-warning{
   letter-spacing: 1px;
 }
 
-input#findPicture {
+select.form-select {
+  background: black;
+  color: #fff;
+}
+
+input#inputfindPokemon {
   background: black;
   color: #fff;
 }
@@ -583,4 +588,23 @@ svg{
 .my-10{
   margin-top: 120px;
   margin-bottom: 120px;
+}
+
+#formulario{
+  display: flex;
+
+}
+#formulario,select,input{
+  margin: 0 0.3rem;
+}
+
+.cardCentrado{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.cardCentrado .card{
+  width: 350px;
 }
